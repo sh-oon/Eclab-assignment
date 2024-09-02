@@ -1,9 +1,9 @@
 import {formatDate} from "@/utils/timezone";
-import {Logger} from "@/components/atoms";
 import React from "react";
 import {Summary} from "@/components/organisms";
+import {TestData} from "@/types/response";
 
-async function getTestData() {
+async function getTestData(): Promise<Awaited<TestData>> {
   try {
     const res = await fetch('http://localhost:3000/api/test')
     const {data} = await res.json()
@@ -11,11 +11,16 @@ async function getTestData() {
     return data
   } catch (e) {
     console.error(e)
+    return null
   }
 }
 
 export default async function Student() {
-  const data = await getTestData()
+  const data: TestData | null = await getTestData()
+
+  if (!data) {
+    return <div>Failed to load data</div>
+  }
 
   return (
     <div className='pl-[148px] pt-[60px]'>

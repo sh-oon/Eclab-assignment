@@ -1,45 +1,15 @@
 'use client'
 
 import React from "react";
-
-const summary = [
-  [
-    {
-      icon: '✍️',
-      title: 'Writing Competition',
-    },
-    {
-      icon: '🏆',
-      title: 'Competition',
-    }
-  ],
-  [
-    {
-      icon: '🏫',
-      title: 'Pre-College',
-    },
-    {
-      icon: '💼',
-      title: 'Internship',
-    }
-  ],
-  [
-    {
-      icon: '⛑️',
-      title: 'Volunteering',
-    },
-    {
-      icon: '🔎',
-      title: 'Research',
-    }
-  ]
-]
+import {summary, useSummaryCounts} from "@/hooks/summary";
+import {TestData} from "@/types/response";
 
 type Props = {
-  data: any
+  data: TestData
 }
 
 export const Summary = ({data}: Props) => {
+  const summaryData = useSummaryCounts(data.ec_report_items)
 
   return (
     <div
@@ -53,7 +23,7 @@ export const Summary = ({data}: Props) => {
                   <span className='w-6 h-6'>{item.icon}</span>
                   <span className='font-bold'>{item.title}</span>
                 </div>
-                <span>-</span>
+                <span>{summaryData[item.title] || '-'}</span>
               </div>
             ))}
           </div>
