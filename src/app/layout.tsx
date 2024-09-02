@@ -21,7 +21,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-    <body>
+    <body className={inter.className}>
     <Header device={deviceType}/>
     {deviceType === "desktop" && (
       <Navigator/>
