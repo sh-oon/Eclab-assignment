@@ -1,6 +1,6 @@
 import {formatDate} from "@/utils/timezone";
 import React from "react";
-import {Summary} from "@/components/organisms";
+import {ReportItems, Summary} from "@/components/organisms";
 import {TestData} from "@/types/response";
 import {headers} from "next/headers";
 
@@ -26,9 +26,8 @@ export default async function Student() {
   }
 
   return (
-    <div className='px-4 md:pr-0 md:pl-[148px] pt-[95px] md:pt-[60px]'>
-      <h1 className='text-l md:text-xl font-bold md:pb-[48px]'>EC Report Details</h1>
-
+    <div className='px-4 md:pr-0 md:pl-[148px] pt-[95px] md:pt-[60px] pb-[30px] md:pb-0'>
+      <h1 className='text-xl md:text-xxl font-bold pb-[30px] md:pb-[48px]'>EC Report Details</h1>
       <section
         className='w-full h-full md:w-[1024px] p-0 md:p-[40px] bg-white rounded-[20px] flex flex-col gap-[30px] md:gap-[40px]'>
         {device === 'desktop' && (
@@ -69,9 +68,21 @@ export default async function Student() {
             </div>
           </>
         )}
-        <div className='flex-1 flex flex-col'>
+        <div className='flex-1 flex flex-col h-full'>
           <h1 className='font-bold inline-block pb-[15px]'>Total : {data.ec_report_items.length}</h1>
-          <Summary data={data}/>
+          <div className='flex flex-col gap-5'>
+            <Summary data={data}/>
+            <div className='md:max-h-96 flex-1 md:overflow-auto flex flex-col gap-5'>
+              {data.ec_report_items.map((item, index) => (
+                <ReportItems
+                  key={index}
+                  index={index + 1}
+                  authorization={'student'}
+                  reportItem={item}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>

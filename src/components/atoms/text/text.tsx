@@ -3,19 +3,21 @@ import {TextProps} from "@/components/atoms/text/text.types";
 
 const semantic = {
   typography: {
-    'typo-xl-bold': 'text-xl font-bold leading-xl',
-    'typo-xl-medium': 'text-xl font-medium leading-xl',
-    'typo-xl': 'text-xl font-regular leading-xl',
-    'typo-l-bold': 'text-l font-bold leading-l',
-    'typo-l-medium': 'text-l font-medium leading-l',
-    'typo-l': 'text-l font-regular leading-l',
-    'typo-m-bold': 'text-m font-bold leading-m',
-    'typo-m-medium': 'text-m font-medium leading-m',
-    'typo-m': 'text-m font-regular leading-m',
-    'typo-s': 'text-s font-regular leading-s',
-    'typo-xs': 'text-xs font-regular leading-xs',
+    'typo-xxl-bold': 'text-xxl font-bold',
+    'typo-xxl-medium': 'text-xxl font-medium',
+    'typo-xxl': 'text-xxl font-regular',
+    'typo-xl-bold': 'text-xl font-bold',
+    'typo-xl-medium': 'text-xl font-medium',
+    'typo-xl': 'text-xl font-regular',
+    'typo-l-bold': 'text-l font-bold',
+    'typo-l-medium': 'text-l font-medium',
+    'typo-l': 'text-l font-regular',
+    'typo-m-bold': 'text-m font-bold',
+    'typo-m-medium': 'text-m font-medium',
+    'typo-m': 'text-m font-regular',
+    'typo-s': 'text-s font-regular',
+    'typo-xs': 'text-xs font-regular',
   },
-
 }
 
 

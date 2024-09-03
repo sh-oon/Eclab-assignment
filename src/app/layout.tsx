@@ -21,7 +21,7 @@ export default function RootLayout({
   const deviceType = headersList.get("x-device-type");
 
   return (
-    <html lang="en">
+    <html lang="kr">
     <body className={inter.className}>
     <DeviceProvider initialDevice={deviceType}>
       <Header device={deviceType}/>
