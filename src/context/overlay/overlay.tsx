@@ -45,9 +45,9 @@ export const OverlayProvider: React.FC<{ children: ReactNode }> = ({children}) =
     <OverlayContext.Provider value={{...state, showOverlay, hideOverlay}}>
       {children}
       {state.isVisible && (
-        <div className='fixed top-[55px] left-0 w-full h-[calc(100% - 55px)] z-[1000]'>
-          <div onClick={hideOverlay} className='fixed w-full h-full bg-[#3B3A48] bg-opacity-60 blur-[10px]' />
-          <div className='z-[1001]'>
+        <div className='overlay-container'>
+          <div onClick={hideOverlay} className='overlay-bg' />
+          <div className='overlay-content'>
             {state.content}
           </div>
         </div>
@@ -64,15 +64,3 @@ export const useOverlay = (): TOverlayContext => {
   return context;
 };
 
-
-const Content = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 16px;
-  box-sizing: border-box;
-  z-index: 1001;
-  animation: ${slideBottom} 0.3s ease;
-`;

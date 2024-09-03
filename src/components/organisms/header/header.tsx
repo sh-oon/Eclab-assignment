@@ -1,13 +1,51 @@
 'use client'
 
+import {useOverlay} from "@/context/overlay";
+import {navigation} from "@/constants/navigation";
+import Link from "next/link";
+import {usePathname} from "next/navigation";
+import {useEffect} from "react";
+
 type Props = {
   device: string;
 };
 
 export const Header = ({device}: Props) => {
+  const pathname = usePathname()
+  const {showOverlay, hideOverlay, isVisible} = useOverlay();
+
+  const selectedClass = (link: string) => {
+    const defaultClass = 'text-white block py-[18px] px-5'
+    return pathname === link ? `${defaultClass} bg-primary text-white` : `${defaultClass} text-unselected`
+  }
+
+  const handleShowOverlay = () => {
+    if (isVisible) {
+      hideOverlay();
+    } else {
+      showOverlay(
+        <>
+          {navigation.map((item, index) => (
+            <Link
+              key={index}
+              href={item.link}
+              className={selectedClass(item.link)}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </>
+      );
+    }
+  };
+
+  useEffect(() => {
+    hideOverlay();
+  }, [hideOverlay, pathname]);
+
   return (
     <header
-      className='md:h-[80px] h-[55px] w-full bg-secondary fixed px-4 md:px-[40px] justify-between md:justify-start flex items-center z-10'>
+      className='md:h-[80px] h-[55px] w-full bg-secondary fixed px-4 md:px-[40px] justify-between md:justify-start flex items-center z-[1001]'>
       <div className='flex gap-[30px] items-center'>
         <svg width="105" height="20" viewBox="0 0 105 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -34,7 +72,23 @@ export const Header = ({device}: Props) => {
         )}
       </div>
       {device === 'mobile' && (
-        <button className='text-white'>Menu</button>
+        <button
+          className='icon-container small'
+          onClick={() => handleShowOverlay()}
+        >
+          {isVisible ? (
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" clipRule="evenodd"
+                    d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L6 4.58579L10.2929 0.292893C10.6834 -0.0976311 11.3166 -0.0976311 11.7071 0.292893C12.0976 0.683417 12.0976 1.31658 11.7071 1.70711L7.41421 6L11.7071 10.2929C12.0976 10.6834 12.0976 11.3166 11.7071 11.7071C11.3166 12.0976 10.6834 12.0976 10.2929 11.7071L6 7.41421L1.70711 11.7071C1.31658 12.0976 0.683417 12.0976 0.292893 11.7071C-0.0976311 11.3166 -0.0976311 10.6834 0.292893 10.2929L4.58579 6L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                    fill="white"/>
+            </svg>
+          ) : (
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1H17M1 7H17M1 13H17" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+
+          )}
+        </button>
       )}
     </header>
   );

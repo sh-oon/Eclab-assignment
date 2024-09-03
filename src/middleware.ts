@@ -14,11 +14,14 @@ export function middleware(request: NextRequest) {
   // Add a custom header to the response
   const userAgent = request.headers.get('user-agent')
   const deviceType = getDeviceType(userAgent)
+  const path = request.nextUrl.pathname
+
 
 
   return NextResponse.next({
     headers: {
       'x-device-type': deviceType,
+      'x-path': path,
     },
   })
 }

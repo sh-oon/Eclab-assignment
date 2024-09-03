@@ -4,6 +4,7 @@ import "./globals.css";
 import {Header, Navigator} from "@/components/organisms";
 import {headers} from "next/headers";
 import {DeviceProvider} from "@/context/device";
+import {OverlayProvider} from "@/context/overlay";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -24,13 +25,15 @@ export default function RootLayout({
     <html lang="kr">
     <body className={inter.className}>
     <DeviceProvider initialDevice={deviceType}>
-      <Header device={deviceType}/>
-      {deviceType === "desktop" && (
-        <Navigator/>
-      )}
-      <main className='w-full h-full md:pl-[300px] md:pt-20'>
-        {children}
-      </main>
+      <OverlayProvider>
+        <Header device={deviceType}/>
+        {deviceType === "desktop" && (
+          <Navigator/>
+        )}
+        <main className='w-full h-full md:pl-[300px] md:pt-20'>
+          {children}
+        </main>
+      </OverlayProvider>
     </DeviceProvider>
     </body>
     </html>
