@@ -1,19 +1,8 @@
 'use client'
 
-
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-
-const navigation = [
-  {
-    title: 'EC Report_STU',
-    link: '/student',
-  },
-  {
-    title: 'EC Report_CON',
-    link: '/counselor',
-  },
-]
+import {navigation} from "@/constants/navigation";
 
 export const Navigator = () => {
   const pathname = usePathname()
