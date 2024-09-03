@@ -4,6 +4,8 @@ import {ReportItems, Summary} from "@/components/organisms";
 import {TestData} from "@/types/response";
 import {headers} from "next/headers";
 import {Button, Text} from "@/components/atoms";
+import {Checkbox} from "@/components/atoms/checkbox";
+import {SendReportAgreement} from "@/components/organisms/agreement/send-report-agreement";
 
 async function getTestData(): Promise<Awaited<TestData>> {
   try {
@@ -89,18 +91,7 @@ export default async function Counselor() {
           </div>
         </div>
       </section>
-      <div className='w-full max-w-[1024px] pt-[40px] flex items-center flex-col gap-[25px] pb-8'>
-        <Text typography='typo-s' align='center'>Once sent, the report is final and cannot be retrieved. The counselor is solely responsible for any incorrections in the report.</Text>
-        <div>
-          test
-        </div>
-        <Button
-          variant='secondary'
-          size='large'
-          width='full'
-          className={`${device === 'mobile' ? 'w-dvw rounded-none' : ''}`}
-        >Send to Student</Button>
-      </div>
+      <SendReportAgreement />
     </div>
   );
 }

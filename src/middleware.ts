@@ -16,8 +16,6 @@ export function middleware(request: NextRequest) {
   const deviceType = getDeviceType(userAgent)
   const path = request.nextUrl.pathname
 
-
-
   return NextResponse.next({
     headers: {
       'x-device-type': deviceType,
