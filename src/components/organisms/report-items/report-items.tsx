@@ -205,14 +205,18 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
             <Button
               variant={reportItem.is_added ? 'tertiary' : 'primary'}
               size='medium'
+              stretch
               onClick={() => console.log('add to EC List')}
+              className='whitespace-nowrap'
             >
               {reportItem.is_added ? 'already added!' : 'add to EC List'}
             </Button>
             <Button
               variant='secondary'
               size='medium'
-              onClick={() => console.log('add to EC List')}
+              stretch
+              className='whitespace-nowrap'
+              onClick={() => window.open(reportItem.ec_db.url)}
             >
               Visit Website
             </Button>
