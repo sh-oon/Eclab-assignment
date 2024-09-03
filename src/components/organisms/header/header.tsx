@@ -73,7 +73,7 @@ export const Header = ({device}: Props) => {
       </div>
       {device === 'mobile' && (
         <button
-          className='text-white'
+          className='icon-container small'
           onClick={() => handleShowOverlay()}
         >
           {isVisible ? (
