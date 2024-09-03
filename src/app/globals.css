@@ -128,7 +128,7 @@ html, body {
   padding-bottom: 20px;
   top: 0;
   z-index: 1001;
-  animation: slide-bottom 0.5s ease-out;
+  animation: slide-bottom 0.5s ease-in-out;
   @apply bg-secondary text-white rounded-b-[10px] w-full;
 }
 
