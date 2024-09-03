@@ -26,7 +26,7 @@ export default async function Student() {
   }
 
   return (
-    <div className='px-4 md:pr-0 md:pl-[148px] pt-[95px] md:pt-[60px] pb-[30px] md:pb-0'>
+    <div className='px-4 md:pr-0 md:pl-[148px] pt-[95px] md:pt-[60px]'>
       <h1 className='text-xl md:text-xxl font-bold pb-[30px] md:pb-[48px]'>EC Report Details</h1>
       <section
         className='w-full h-full md:w-[1024px] p-0 md:p-[40px] bg-white rounded-[20px] flex flex-col gap-[30px] md:gap-[40px]'>

@@ -13,6 +13,7 @@ export const Summary = ({data}: Props) => {
   const summaryData = useSummaryCounts(data.ec_report_items)
   const device = useDevice();
 
+  console.log(data)
   return (
     <>
       {device === 'desktop' && (

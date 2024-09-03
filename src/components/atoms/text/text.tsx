@@ -16,7 +16,13 @@ const semantic = {
     'typo-m-medium': 'text-m font-medium',
     'typo-m': 'text-m font-regular',
     'typo-s': 'text-s font-regular',
+    'typo-xs-bold': 'text-xs font-bold',
     'typo-xs': 'text-xs font-regular',
+  },
+  align: {
+    left: 'text-start',
+    center: 'text-center',
+    right: 'text-end',
   },
 }
 
@@ -32,7 +38,7 @@ export const Text:ForwardedRef<TextProps> = forwardRef<HTMLElement, TextProps>(
         `text-wrap`,
         `text-${color}`,
         `${semantic.typography[typography]}`,
-        `align-${align}`,
+        `${semantic.align[align]}`,
         lineLimitClass,
         className,
       ]

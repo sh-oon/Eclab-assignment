@@ -38,6 +38,7 @@ const config: Config = {
         tertiary: '#9747FF33',
         card: '#E6E9EC',
         divider: '#B3B3B3',
+        badge: '#6B7280',
       },
     },
   },

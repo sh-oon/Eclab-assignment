@@ -30,7 +30,7 @@ export default function RootLayout({
         {deviceType === "desktop" && (
           <Navigator/>
         )}
-        <main className='w-full h-full md:pl-[300px] md:pt-20'>
+        <main className='w-full h-full md:pl-[300px] md:pt-20 pb-[30px] md:pb-0'>
           {children}
         </main>
       </OverlayProvider>
