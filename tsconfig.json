@@ -7,6 +7,7 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
+    "target": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -26,7 +27,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "../../../Library/Caches/JetBrains/WebStorm2024.1/javascript/typings/node/20.12.14/node_modules/@types/node/globals.d.ts"
   ],
   "exclude": ["node_modules"]
 }

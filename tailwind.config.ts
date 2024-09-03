@@ -8,8 +8,9 @@ const config: Config = {
   ],
   theme: {
     fontSize: {
-      xl: ['30px', '35.8px'],
-      l: '24px',
+      xxl: ['30px', '35.8px'],
+      xl: '24px',
+      l: '20px',
       m: '18px',
       s: '16px',
       xs: '14px',
@@ -22,7 +23,7 @@ const config: Config = {
         thin: 300,
       },
       lineHeight: {
-        xl: '35.8px',
+        xxl: '35.8px',
         l: '28.8px',
         m: '21.48px',
         s: '19.09px',

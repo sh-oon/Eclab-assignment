@@ -49,6 +49,83 @@ html, body {
   margin: 0;
 }
 
-@layer utilities {
+@layer components {
+  .button {
+    @apply flex items-center justify-center rounded-[10px] font-bold gap-3;
+  }
 
+  .button-primary {
+    @apply bg-primary text-white;
+  }
+
+  .button-secondary {
+    @apply bg-secondary text-white;
+  }
+
+  .button-tertiary {
+    @apply border border-primary text-primary;
+  }
+
+  .button-disabled {
+    @apply bg-gray-300 text-gray-500 pointer-events-none;
+  }
+
+  .button-large {
+    @apply text-m px-6 py-14;
+  }
+
+  .button-medium {
+    @apply text-s px-5 py-3;
+  }
+
+  .button-small {
+    @apply text-s p-[18px];
+  }
+
+  .button-xSmall {
+    @apply text-s px-3 py-1;
+  }
+
+  .icon-container {
+    @apply flex items-center justify-center;
+
+    &.small {
+      @apply w-6 h-6;
+    }
+
+    &.medium {
+      @apply w-8 h-8;
+    }
+
+    &.large {
+      @apply w-10 h-10;
+    }
+  }
+}
+
+.toast-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  width: fit-content;
+  background: white;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  animation: slide-top 0.5s ease-in-out;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

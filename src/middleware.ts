@@ -5,9 +5,7 @@ function getDeviceType(userAgent: string) {
   if (/mobi/i.test(userAgent)) {
     return 'mobile'
   }
-  if (/tablet/i.test(userAgent)) {
-    return 'tablet'
-  }
+
   return 'desktop'
 }
 
