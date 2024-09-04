@@ -1,9 +1,9 @@
 'use client'
 
-import {ForwardedRef, forwardRef} from "react";
+import {forwardRef} from "react";
 import {ButtonProps} from "@/components/atoms/button/button.types";
 
-export const Button: ForwardedRef<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(({onClick, children, className, variant, stretch, size, pending, disabled}, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({onClick, children, className, variant, stretch, size, pending, disabled}, ref) => {
   const getClassNameByVariant = () => {
     switch (variant) {
       case 'primary':

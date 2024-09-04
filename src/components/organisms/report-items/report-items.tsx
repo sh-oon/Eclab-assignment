@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const ReportItems = ({index, reportItem, authorization}: Props) => {
-  const device = useDevice();
+  const {device} = useDevice();
 
   const handleAddToECList = () => {
     console.log('add to EC List')
@@ -101,7 +101,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
                     fill="#7A40F2"/>
                 </svg>
               </div>
-              <Text typograph='typo-s'>
+              <Text typography='typo-s'>
                 <strong>Nationality: </strong>
                 {reportItem.ec_db.nationality}
                 &nbsp;•&nbsp;
@@ -240,7 +240,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
                         stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  Visit Website
+                  <Text typography='typo-s'>Visit Website</Text>
                 </>
               ) : 'Visit Website'}
             </Button>

@@ -1,14 +1,13 @@
 'use client'
 
-import {ForwardedRef, forwardRef} from "react";
+import {forwardRef, memo} from "react";
 import {CheckboxProps} from "@/components/atoms/checkbox/checkbox.types";
 
-export const Checkbox: ForwardedRef<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(({
+export const Checkbox = memo(({
                                                                                                     id,
-                                                                                                    label,
                                                                                                     checked,
                                                                                                     onChange
-                                                                                                  }, ref) => {
+                                                                                                  }: CheckboxProps) => {
   const getClassNames = () => {
     const defaultClasses = 'rounded-[5px] border border-primary flex items-center justify-center cursor-pointer w-[22px] h-[22px]'
 
@@ -21,11 +20,10 @@ export const Checkbox: ForwardedRef<CheckboxProps> = forwardRef<HTMLInputElement
   return (
     <>
       <input
-        ref={ref}
         type="checkbox"
         id={id}
         checked={checked}
-        onChange={onChange && onChange}
+        onChange={onChange}
         className={'hidden'}
       />
       <div className={getClassNames()}>

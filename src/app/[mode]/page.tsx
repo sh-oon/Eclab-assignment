@@ -1,25 +1,37 @@
 import {TestData} from "@/types/response";
 import {headers} from "next/headers";
 import {formatDate} from "@/utils/timezone";
-import {Text} from "@/components/atoms";
+import {Text} from "@/components/atoms/text/text";
 import {ReportItems, Summary} from "@/components/organisms";
 import {SendReportAgreement} from "@/components/organisms/agreement/send-report-agreement";
 import React from "react";
 
-async function getTestData(): Promise<Awaited<TestData>> {
-  try {
-    const res = await fetch('http://localhost:3000/api/test')
-    const {data} = await res.json()
+interface CustomError extends Error {
+  statusCode?: number;
+  message: string;
+}
 
-    return data
+async function getTestData(): Promise<TestData> {
+  try {
+    const res = await fetch('http://localhost:3000/api/test');
+
+    if (!res.ok) {
+      const error: CustomError = new Error('Failed to fetch data');
+      error.statusCode = res.status;
+      throw error;
+    }
+
+    const { data } = await res.json();
+    return data;
   } catch (e) {
-    console.error(e)
-    return null
+    const error = e as CustomError;
+    error.message = error.message || 'An unexpected error occurred';
+    throw error;
   }
 }
 
 export default async function Slug({params}: { params: { mode: 'student' | 'counselor' } }) {
-  const data: TestData | null = await getTestData()
+  const data: TestData = await getTestData()
   const headerList = headers()
   const device = headerList.get('x-device-type')
 

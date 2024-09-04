@@ -17,10 +17,10 @@ const config: Config = {
     },
     extend: {
       fontWeight: {
-        bold: 700,
-        medium: 500,
-        regular: 400,
-        thin: 300,
+        bold: '700',
+        medium: '500',
+        regular: '400',
+        thin: '300',
       },
       lineHeight: {
         xxl: '35.8px',

@@ -1,9 +1,9 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import {Header, Navigator} from "@/components/organisms";
 import {headers} from "next/headers";
-import {DeviceProvider} from "@/context/device";
+import {Header, Navigator} from "@/components/organisms";
+import {Device, DeviceProvider} from "@/context/device";
 import {OverlayProvider} from "@/context/overlay";
 
 const inter = Inter({subsets: ["latin"]});
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const headersList = headers();
-  const deviceType = headersList.get("x-device-type");
+  const deviceType = headersList.get("x-device-type") || 'desktop';
 
   return (
     <html lang="kr">

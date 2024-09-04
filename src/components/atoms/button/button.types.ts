@@ -7,7 +7,7 @@ export type ButtonSize = 'large' | 'medium' | 'small' | 'xSmall';
 export type ButtonProps = {
   variant: ButtonVariant;
   size: ButtonSize;
-  children: string | string[];
+  children: string | string[] | React.ReactNode;
   pending?: boolean;
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;

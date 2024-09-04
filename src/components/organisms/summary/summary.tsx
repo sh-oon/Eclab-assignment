@@ -12,7 +12,7 @@ type Props = {
 
 export const Summary = ({data}: Props) => {
   const summaryData = useSummaryCounts(data.ec_report_items)
-  const device = useDevice();
+  const {device} = useDevice();
 
   return (
     <>

@@ -1,0 +1,25 @@
+export const semantic = {
+  typography: {
+    'typo-xxl-bold': 'text-xxl font-bold',
+    'typo-xxl-medium': 'text-xxl font-medium',
+    'typo-xxl': 'text-xxl font-regular',
+    'typo-xl-bold': 'text-xl font-bold',
+    'typo-xl-medium': 'text-xl font-medium',
+    'typo-xl': 'text-xl font-regular',
+    'typo-l-bold': 'text-l font-bold',
+    'typo-l-medium': 'text-l font-medium',
+    'typo-l': 'text-l font-regular',
+    'typo-m-bold': 'text-m font-bold',
+    'typo-m-medium': 'text-m font-medium',
+    'typo-m': 'text-m font-regular',
+    'typo-s-bold': 'text-s font-bold',
+    'typo-s': 'text-s font-regular',
+    'typo-xs-bold': 'text-xs font-bold',
+    'typo-xs': 'text-xs font-regular',
+  },
+  align: {
+    start: 'text-start',
+    center: 'text-center',
+    end: 'text-end',
+  },
+}

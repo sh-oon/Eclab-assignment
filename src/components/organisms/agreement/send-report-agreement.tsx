@@ -16,8 +16,6 @@ export const SendReportAgreement = () => {
         <Checkbox
           id='send-report'
           checked={isAgreed}
-          width={20}
-          height={20}
           className='mr-3'
           onChange={() => {
             setIsAgreed(!isAgreed)
@@ -28,7 +26,6 @@ export const SendReportAgreement = () => {
       <Button
         variant='secondary'
         size='large'
-        width='full'
         className={`${device === 'mobile' ? 'w-dvw rounded-none' : ''}`}
         disabled={!isAgreed}
         onClick={() => {
