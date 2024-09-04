@@ -117,7 +117,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
       )}
 
       {device === 'mobile' && (
-        <div className='border border-card rounded-[10px] flex flex-col p-[20px]'>
+        <div className='border border-card rounded-[10px] flex flex-col p-[20px] bg-white'>
           <div className='flex w-full relative'>
             <div className='flex gap-[10px] pb-[20px]'>
               <Text
@@ -127,7 +127,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
                 {index}
               </Text>
               <div className='flex flex-col gap-[10px]'>
-                <Text typography='typo-l-bold'>{reportItem.ec_db.name}</Text>
+                <Text typography='typo-s-bold'>{reportItem.ec_db.name}</Text>
                 <Text typography='typo-s'>{reportItem.ec_db.organization}</Text>
               </div>
             </div>

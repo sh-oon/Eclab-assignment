@@ -15,6 +15,7 @@ const semantic = {
     'typo-m-bold': 'text-m font-bold',
     'typo-m-medium': 'text-m font-medium',
     'typo-m': 'text-m font-regular',
+    'typo-s-bold': 'text-s font-bold',
     'typo-s': 'text-s font-regular',
     'typo-xs-bold': 'text-xs font-bold',
     'typo-xs': 'text-xs font-regular',

@@ -5,21 +5,12 @@ import {Checkbox} from "@/components/atoms/checkbox";
 import React from "react";
 import {useDevice} from "@/context/device";
 
-type Props = {
-  // 문구
-  content: string;
-  // 동의 여부 문구
-  agreeContent: string;
-  // 핸들러
-  onAgree: () => void;
-}
-
 export const SendReportAgreement = () => {
   const [isAgreed, setIsAgreed] = React.useState(false)
   const {device} = useDevice()
 
   return (
-    <section className='w-full max-w-[1024px] pt-[40px] flex items-center flex-col gap-[25px] pb-8'>
+    <section className='w-full max-w-[1024px] pt-[40px] flex items-center flex-col gap-[25px]'>
       <Text typography='typo-s' align='center'>Once sent, the report is final and cannot be retrieved. The counselor is solely responsible for any incorrections in the report.</Text>
       <label htmlFor='send-report' className='flex gap-[15px]'>
         <Checkbox

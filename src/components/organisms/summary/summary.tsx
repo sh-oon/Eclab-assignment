@@ -4,6 +4,7 @@ import React from "react";
 import {summary, useSummaryCounts} from "@/hooks/summary";
 import {TestData} from "@/types/response";
 import {useDevice} from "@/context/device";
+import {Text} from "@/components/atoms";
 
 type Props = {
   data: TestData
@@ -13,7 +14,6 @@ export const Summary = ({data}: Props) => {
   const summaryData = useSummaryCounts(data.ec_report_items)
   const device = useDevice();
 
-  console.log(data)
   return (
     <>
       {device === 'desktop' && (
@@ -25,11 +25,11 @@ export const Summary = ({data}: Props) => {
                 <div className='flex-1 flex gap-5 flex-col'>
                   {items.map((item, index) => (
                     <div key={index} className='flex-1 flex justify-between'>
-                      <div className='flex-1 flex items-center'>
-                        <span className='w-6 h-6'>{item.icon}</span>
-                        <span className='font-bold'>{item.title}</span>
+                      <div className='flex-1 flex items-center gap-[10px]'>
+                        <div className='icon-container small'>{item.icon}</div>
+                        <Text typography='typo-s-bold'>{item.title}</Text>
                       </div>
-                      <span>{summaryData[item.title] || '-'}</span>
+                      <Text typography='typo-s'>{summaryData[item.title] || '-'}</Text>
                     </div>
                   ))}
                 </div>
@@ -45,11 +45,11 @@ export const Summary = ({data}: Props) => {
         <div className='flex-1 flex gap-[10px] flex-col'>
           {summary.flat().map((item, index) => (
             <div key={index} className='flex-1 flex gap-[40px] bg-[#9747FF33] py-5 px-[40px] rounded-[10px]'>
-              <div className='flex items-center'>
-                <span className='w-6 h-6'>{item.icon}</span>
-                <span className='font-bold'>{item.title}</span>
+              <div className='flex items-center gap-[10px]'>
+                <div className='icon-container small'>{item.icon}</div>
+                <Text typography='typo-s-bold'>{item.title}</Text>
               </div>
-              <span>{summaryData[item.title] || '-'}</span>
+              <Text typography='typo-s'>{summaryData[item.title] || '-'}</Text>
             </div>
           ))}
         </div>
