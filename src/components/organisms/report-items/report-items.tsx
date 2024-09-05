@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const ReportItems = ({index, reportItem, authorization}: Props) => {
-  const device = useDevice();
+  const {device} = useDevice();
 
   const handleAddToECList = () => {
     console.log('add to EC List')
@@ -50,17 +50,28 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
                     </svg>
                   </div>
                 </Link>
-                <Text>{reportItem.ec_db.organization}</Text>
+                <Text typography='typo-s'>{reportItem.ec_db.organization}</Text>
+                {authorization === 'counselor' && (
+                  <Text
+                    typography='typo-xs-bold'
+                    color='white'
+                    className='py-[3px] px-2.5 bg-badge rounded-full w-fit'
+                  >
+                    {reportItem.ec_db.year}
+                  </Text>
+                )}
               </div>
             </div>
-            <Button
-              variant={reportItem.is_added ? 'tertiary' : 'primary'}
-              size='medium'
-              onClick={() => handleAddToECList()}
-              className='absolute right-0 top-0'
-            >
-              {reportItem.is_added ? 'already added!' : 'add to EC List'}
-            </Button>
+            {authorization === 'student' && (
+              <Button
+                variant={reportItem.is_added ? 'tertiary' : 'primary'}
+                size='medium'
+                onClick={() => handleAddToECList()}
+                className='absolute right-0 top-0'
+              >
+                {reportItem.is_added ? 'already added!' : 'add to EC List'}
+              </Button>
+            )}
           </div>
           <div className='w-full border-t-2 border-dashed border-card pt-5 flex flex-col gap-[18px]'>
             <div className='flex gap-[10px] items-center'>
@@ -90,7 +101,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
                     fill="#7A40F2"/>
                 </svg>
               </div>
-              <Text typograph='typo-s'>
+              <Text typography='typo-s'>
                 <strong>Nationality: </strong>
                 {reportItem.ec_db.nationality}
                 &nbsp;•&nbsp;
@@ -106,7 +117,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
       )}
 
       {device === 'mobile' && (
-        <div className='border border-card rounded-[10px] flex flex-col p-[20px]'>
+        <div className='border border-card rounded-[10px] flex flex-col p-[20px] bg-white'>
           <div className='flex w-full relative'>
             <div className='flex gap-[10px] pb-[20px]'>
               <Text
@@ -116,7 +127,7 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
                 {index}
               </Text>
               <div className='flex flex-col gap-[10px]'>
-                <Text typography='typo-l-bold'>{reportItem.ec_db.name}</Text>
+                <Text typography='typo-s-bold'>{reportItem.ec_db.name}</Text>
                 <Text typography='typo-s'>{reportItem.ec_db.organization}</Text>
               </div>
             </div>
@@ -202,15 +213,17 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
             </div>
           </div>
           <div className='w-full flex gap-[10px] pt-[30px]'>
-            <Button
-              variant={reportItem.is_added ? 'tertiary' : 'primary'}
-              size='medium'
-              stretch
-              onClick={() => console.log('add to EC List')}
-              className='whitespace-nowrap'
-            >
-              {reportItem.is_added ? 'already added!' : 'add to EC List'}
-            </Button>
+            {authorization === 'student' && (
+              <Button
+                variant={reportItem.is_added ? 'tertiary' : 'primary'}
+                size='medium'
+                stretch
+                onClick={() => console.log('add to EC List')}
+                className='whitespace-nowrap'
+              >
+                {reportItem.is_added ? 'already added!' : 'add to EC List'}
+              </Button>
+            )}
             <Button
               variant='secondary'
               size='medium'
@@ -218,7 +231,18 @@ export const ReportItems = ({index, reportItem, authorization}: Props) => {
               className='whitespace-nowrap'
               onClick={() => window.open(reportItem.ec_db.url)}
             >
-              Visit Website
+              {authorization === 'counselor' ? (
+                <>
+                  <div className='icon-container small'>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.8284 8.17157C10.2663 6.60948 7.73367 6.60948 6.17157 8.17157L2.17157 12.1716C0.609476 13.7337 0.609476 16.2663 2.17157 17.8284C3.73367 19.3905 6.26633 19.3905 7.82843 17.8284L8.92999 16.7269M8.17157 11.8284C9.73367 13.3905 12.2663 13.3905 13.8284 11.8284L17.8284 7.82843C19.3905 6.26633 19.3905 3.73367 17.8284 2.17157C16.2663 0.609476 13.7337 0.609476 12.1716 2.17157L11.072 3.27118"
+                        stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <Text typography='typo-s'>Visit Website</Text>
+                </>
+              ) : 'Visit Website'}
             </Button>
           </div>
         </div>

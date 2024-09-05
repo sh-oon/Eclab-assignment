@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, ReactNode } from 'react';
 
-type Device = 'mobile' | 'desktop';
+export type Device = string;
 
 type DeviceContextType = {
   device: Device;
@@ -51,5 +51,5 @@ export const useDevice = () => {
   if (!context) {
     throw new Error('useDevice must be used within a DeviceProvider');
   }
-  return context.device;
+  return context;
 };

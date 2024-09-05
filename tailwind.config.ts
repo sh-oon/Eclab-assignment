@@ -17,10 +17,10 @@ const config: Config = {
     },
     extend: {
       fontWeight: {
-        bold: 700,
-        medium: 500,
-        regular: 400,
-        thin: 300,
+        bold: '700',
+        medium: '500',
+        regular: '400',
+        thin: '300',
       },
       lineHeight: {
         xxl: '35.8px',
@@ -38,6 +38,7 @@ const config: Config = {
         tertiary: '#9747FF33',
         card: '#E6E9EC',
         divider: '#B3B3B3',
+        badge: '#6B7280',
       },
     },
   },

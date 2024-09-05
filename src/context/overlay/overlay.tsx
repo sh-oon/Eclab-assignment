@@ -1,7 +1,7 @@
 'use client'
 
 import React, {createContext, ReactNode, useCallback, useContext, useReducer} from 'react';
-import {IOverlayState, TOverlayAction, TOverlayContext} from "@order/context/overlay/overlay.types";
+import {IOverlayState, TOverlayAction, TOverlayContext} from "./overlay.types";
 
 
 // 초기 상태 정의
