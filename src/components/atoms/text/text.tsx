@@ -7,7 +7,6 @@ export const Text = forwardRef<HTMLElement, TextProps>(
 
     const lineLimitClass = lineLimit ? `line-clamp-${lineLimit}` : ''
 
-    // getClassNames
     const getClassNames = () => {
       const classNames = [
         `text-wrap`,
